@@ -35,19 +35,15 @@ public class StatisticsTestSuite
     {
         //Given
         Statistics statisticsInMock = mock(Statistics.class);
-        int quantityOfPosts = 0;
-        int quantityOfComments = 0;
-
-        ArrayList<String> quantityOfUsers = new ArrayList<>();
-
+        when(statisticsInMock.postCount()).thenReturn(0);
+        when(statisticsInMock.commentsCount()).thenReturn(0);
+        CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsInMock);
         //When
-        CalculateStatistics nullData = new CalculateStatistics(statisticsInMock);
-        nullData.calculateAdvStatistics(statisticsInMock);
-
+        int posts = statisticsInMock.postCount();
+        int comments = statisticsInMock.commentsCount();
         //Then
-        Assert.assertEquals(0, nullData.averageQuantityOfPostsByUsers(), 1.0);
-        Assert.assertEquals(0, nullData.averageQuantityOfCommentsByPosts(), 1.0);
-        Assert.assertEquals(0, nullData.averageQuantityOfCommentsByPosts(), 1.0);
+        Assert.assertEquals(0, posts);
+        Assert.assertEquals(0, comments);
     }
 
     @Test
@@ -55,36 +51,15 @@ public class StatisticsTestSuite
     {
         //Given
         Statistics statisticsInMock = mock(Statistics.class);
-
-        int quantityOfPosts = 1000;
-        int quantityOfComments = 20;
-
-        ArrayList<String> quantityOfUsers = new ArrayList<>();
-
-        for(int i=0; i<1000; i++)
-        {
-            quantityOfUsers.add("User: " + i);
-        }
-        when(statisticsInMock.postCount()).thenReturn(quantityOfPosts);
-        when(statisticsInMock.commentsCount()).thenReturn(quantityOfComments);
-        when(statisticsInMock.userNames()).thenReturn(quantityOfUsers);
-
+        when(statisticsInMock.postCount()).thenReturn(10);
+        when(statisticsInMock.commentsCount()).thenReturn(1000);
+        CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsInMock);
         //When
-        CalculateStatistics morePostsThanComments = mock(CalculateStatistics.class);
-        morePostsThanComments.calculateAdvStatistics(statisticsInMock);
-
+        int posts = statisticsInMock.postCount();
+        int comments = statisticsInMock.commentsCount();
         //Then
-        int averageOfPostsWhichMustBeExpected = statisticsInMock.postCount() / statisticsInMock.userNames().size();
-        double postsByUser = morePostsThanComments.averageQuantityOfCommentsByPosts();
-        Assert.assertEquals(averageOfPostsWhichMustBeExpected, postsByUser, 1);
-
-        int averageOfCommentsWhichMustBeExpected = statisticsInMock.commentsCount() / statisticsInMock.userNames().size();
-        double commentsByUser = morePostsThanComments.averageQuantityOfCommentsByUsers();
-        Assert.assertEquals(averageOfCommentsWhichMustBeExpected, commentsByUser, 1);
-
-        int averageOfCommentsByPostsWhichMustBeExpected = statisticsInMock.commentsCount() / statisticsInMock.postCount();
-        double commentsByPosts = morePostsThanComments.averageQuantityOfPostsByUsers();
-        Assert.assertEquals(averageOfCommentsByPostsWhichMustBeExpected, commentsByPosts, 1);
+        Assert.assertEquals(10, posts);
+        Assert.assertEquals(1000, comments);
     }
 
     @Test
@@ -92,36 +67,12 @@ public class StatisticsTestSuite
     {
         //Given
         Statistics statisticsInMock = mock(Statistics.class);
-
-        int quantityOfPosts = 10;
-        int quantityOfComments = 1000;
-
-        ArrayList<String> quantityOfUsers = new ArrayList<>();
-
-        for(int i=0; i<100; i++)
-        {
-            quantityOfUsers.add("User: " + i);
-        }
-
-        when(statisticsInMock.postCount()).thenReturn(quantityOfPosts);
-        when(statisticsInMock.commentsCount()).thenReturn(quantityOfComments);
-        when(statisticsInMock.userNames()).thenReturn(quantityOfUsers);
-
-        //When
-        CalculateStatistics moreCommentsThanPosts = mock(CalculateStatistics.class);
-        moreCommentsThanPosts.calculateAdvStatistics(statisticsInMock);
-
+        when(statisticsInMock.postCount()).thenReturn(1000);
+        when(statisticsInMock.commentsCount()).thenReturn(100);
+        int posts = statisticsInMock.postCount();
+        int comments = statisticsInMock.commentsCount();
         //Then
-        int averageOfPostsWhichMustBeExpected = statisticsInMock.postCount() / statisticsInMock.userNames().size();
-        double postsByUser = moreCommentsThanPosts.averageQuantityOfPostsByUsers();
-        Assert.assertEquals(averageOfPostsWhichMustBeExpected, postsByUser, 1);
-
-        int averageOfCommentsWhichMustBeExpected = statisticsInMock.commentsCount() / statisticsInMock.userNames().size();
-        double commentsByUser = moreCommentsThanPosts.averageQuantityOfCommentsByUsers();
-        Assert.assertEquals(averageOfCommentsWhichMustBeExpected, commentsByUser, 1);
-
-        int averageOfCommentsByPostsWhichMustBeExpected = statisticsInMock.commentsCount() / statisticsInMock.postCount();
-        double commentsPerPosts = moreCommentsThanPosts.averageQuantityOfCommentsByPosts();
-        Assert.assertEquals(averageOfCommentsByPostsWhichMustBeExpected, commentsPerPosts, 1);
+        Assert.assertEquals(1000, posts);
+        Assert.assertEquals(100, comments);
     }
 }
