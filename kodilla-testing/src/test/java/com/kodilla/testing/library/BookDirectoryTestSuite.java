@@ -119,7 +119,8 @@ public class BookDirectoryTestSuite
         when(libraryDatabaseMock.listBooksInHandsOf(userWithNoBooks)).thenReturn(noBooks);
         //When
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
-        List<Book> nullBooksInHandsOfUser = new ArrayList<>();
+        //List<Book> nullBooksInHandsOfUser = new ArrayList<>();
+        List<Book> nullBooksInHandsOfUser = bookLibrary.listBooksInHandsOf(userWithNoBooks);
         //Then
         assertEquals(0, nullBooksInHandsOfUser.size());
     }
