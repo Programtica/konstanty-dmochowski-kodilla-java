@@ -26,7 +26,6 @@ public final class User
     {
         return "User{" +
                 "username='" + username + '\'' +
-                ", realName='" + realName + '\'' +
                 '}';
     }
 

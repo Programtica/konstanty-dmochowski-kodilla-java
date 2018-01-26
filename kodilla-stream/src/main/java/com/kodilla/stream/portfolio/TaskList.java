@@ -34,11 +34,20 @@ public final class TaskList
     }
 
     @Override
+    public String toString()
+    {
+        return "TaskList{" +
+                "name='" + name + '\'' + ",\n" +
+                "tasks=\n" + tasks + "\n" +
+                '}' + "\n";
+    }
+
+    @Override
     public boolean equals(Object o)
     {
         if (this == o) return true;
-        if (!(o instanceof User)) return false;
+        if (!(o instanceof TaskList)) return false;
         TaskList taskList = (TaskList) o;
-        return name.equals(taskList);
+        return name.equals(taskList.name);
     }
 }

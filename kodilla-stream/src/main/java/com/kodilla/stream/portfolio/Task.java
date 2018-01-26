@@ -11,7 +11,9 @@ public final class Task
     private final LocalDate created;
     private final LocalDate deadline;
 
-    public Task(final String title, final String description, final User assignedUser, final User creator, final LocalDate created, final LocalDate deadline)
+    public Task(final String title, final String description,
+                final User assignedUser, final User creator,
+                final LocalDate created, final LocalDate deadline)
     {
         this.title = title;
         this.description = description;
@@ -61,6 +63,6 @@ public final class Task
                 ", creator=" + creator +
                 ", created=" + created +
                 ", deadline=" + deadline +
-                '}';
+                '}' + "\n";
     }
 }

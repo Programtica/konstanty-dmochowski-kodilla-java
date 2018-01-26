@@ -36,9 +36,9 @@ public final class Board
     @Override
     public String toString()
     {
-        return "Board{" +
-                "taskList=" + taskLists +
-                ", name='" + name + '\'' +
+        return "Board{" + "\n" +
+                "name='" + name + '\'' + ",\n" +
+                "taskLists=" + taskLists + "\n" +
                 '}';
     }
 }

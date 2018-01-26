@@ -2,6 +2,7 @@ package com.kodilla.stream.portfolio;
 
 import org.junit.Assert;
 import org.junit.Test;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
@@ -66,7 +67,6 @@ public class BoardTestSuite
         taskListInProgress.addTask(task2);
         TaskList taskListDone = new TaskList("Done");
         taskListDone.addTask(task6);
-
         //board
         Board project = new Board("Project Weather Prediction");
         project.addTaskList(taskListToDo);
@@ -94,8 +94,8 @@ public class BoardTestSuite
         //When
         User user = new User("developer1", "John Smith");
         List<Task> tasks = project.getTaskLists().stream()
-              .flatMap(l -> l.getTasks().stream())
-              .filter(t -> t.getAssignedUser().equals(user))
+                .flatMap(l -> l.getTasks().stream())
+                .filter(t -> t.getAssignedUser().equals(user))
                 .collect(toList());
         //Then
         Assert.assertEquals(2, tasks.size());
@@ -136,11 +136,12 @@ public class BoardTestSuite
         long longTasks = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .map(t -> t.getCreated())
+                .map(Task::getCreated)
                 .filter(d -> d.compareTo(LocalDate.now().minusDays(10)) <= 0)
                 .count();
+
         //Then
-        Assert.assertEquals(0, longTasks);
+        Assert.assertEquals(2, longTasks);
     }
 
     @Test
@@ -148,16 +149,15 @@ public class BoardTestSuite
     {
         //Given
         Board project = prepareTestData();
-
         //When
-       double averageTimeToMakeTask = project.getTaskLists().stream()
-               .filter(t -> t.getName().equals("In progress"))
-               .flatMap(t -> t.getTasks().stream())
-               .map(task -> Math.abs(Period.between(LocalDate.now(), task.getCreated()).getDays()))
-               .mapToInt(task -> task)
-               .average().orElse(1);
+        double avgTimeTask = project.getTaskLists().stream()
+                .filter(t -> t.getName().equals("In progress"))
+                .flatMap(t -> t.getTasks().stream())
+                .map(task -> Math.abs(Period.between(LocalDate.now(), task.getCreated()).getDays()))
+                .mapToInt(n -> n)
+                .average().orElse(0);
 
         //Then
-        Assert.assertEquals(10.0, averageTimeToMakeTask, 0.1);
+        Assert.assertEquals(10, avgTimeTask, 0.1);
     }
 }
