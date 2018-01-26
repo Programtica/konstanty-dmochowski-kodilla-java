@@ -4,7 +4,8 @@ import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
-public final class World {
+public final class World
+{
     private Set<Continent> world = new HashSet<>();
 
     public void addContinent(Continent continent)
