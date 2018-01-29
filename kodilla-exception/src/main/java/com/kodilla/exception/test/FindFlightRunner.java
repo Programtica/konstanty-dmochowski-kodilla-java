@@ -35,6 +35,7 @@ public class FindFlightRunner
         {
             find.findFlight(flight);
         }
+
         catch(RouteNotFoundException e)
         {
             System.out.println("Terrible news... we haven't this flight in our base!"
