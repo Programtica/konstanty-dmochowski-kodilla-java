@@ -10,8 +10,8 @@ public class FindFlightRunner
 
         listOfAiports.put("Poznan", true);
         listOfAiports.put("Warsaw", true);
-        listOfAiports.put("London", false);
-        listOfAiports.put("Milano", true);
+        listOfAiports.put("London", true);
+        listOfAiports.put("Milano", false);
         listOfAiports.put("New York", false);
         listOfAiports.put("Frankfurt am Main", true);
 
@@ -22,7 +22,7 @@ public class FindFlightRunner
 
         else
         {
-            throw new RouteNotFoundException("Sorry. We did not find our aiports in our base!");
+            throw new RouteNotFoundException("Sorry. We did not find our aiports or flights in our base!");
         }
     }
 
