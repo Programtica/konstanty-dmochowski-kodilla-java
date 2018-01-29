@@ -4,27 +4,6 @@ import java.util.HashMap;
 
 public class FindFlightRunner
 {
-    public static void main(String[] args)
-    {
-        Flight flight = new Flight("Poznan", "London");
-        FindFlightRunner find = new FindFlightRunner();
-
-        try
-        {
-            find.findFlight(flight);
-        }
-        catch(RouteNotFoundException e)
-        {
-            System.out.println("Terrible news... we haven't this flight in our base!"
-                    + " Please, try another flight.");
-        }
-
-        finally
-        {
-            System.out.println("It's everything for today!");
-        }
-    }
-
     public void findFlight(Flight flight) throws RouteNotFoundException
     {
         HashMap<String, Boolean> listOfAiports = new HashMap<String, Boolean>();
@@ -47,4 +26,24 @@ public class FindFlightRunner
         }
     }
 
+    public static void main(String[] args)
+    {
+        Flight flight = new Flight("Poznan", "London");
+        FindFlightRunner find = new FindFlightRunner();
+
+        try
+        {
+            find.findFlight(flight);
+        }
+        catch(RouteNotFoundException e)
+        {
+            System.out.println("Terrible news... we haven't this flight in our base!"
+                    + " Please, try another flight.");
+        }
+
+        finally
+        {
+            System.out.println("It's everything for today!");
+        }
+    }
 }
