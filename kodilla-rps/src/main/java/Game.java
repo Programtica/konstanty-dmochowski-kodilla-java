@@ -69,7 +69,7 @@ public class Game {
 
                     default:
                         System.out.println("Bad move!");
-                        play();
+                        numberOfRounds--;
                         break;
             }
         }
@@ -79,6 +79,11 @@ public class Game {
         if((key=='3' && generatedNumber==2) || (key=='2' && generatedNumber == 1) ||
                 (key=='1' && generatedNumber == 3)) {
             userResult++;
+        }
+
+        else if((key=='1' && generatedNumber == 1) ||
+                (key=='2' && generatedNumber == 2 || key=='3' && generatedNumber == 3)) {
+            System.out.println("Current result: draw... Next turn!");
         }
 
         else
@@ -102,8 +107,8 @@ public class Game {
             decision();
         }
 
-        else if(userResult == computerResult) {
-            System.out.println("Current result: draw... Next turn!");
+        else if(userResult == computerResult || (key=='1' && generatedNumber == 1) ||
+                (key=='2' && generatedNumber == 2 || key=='3' && generatedNumber == 3)) {
             numberOfRounds++;
         }
 
