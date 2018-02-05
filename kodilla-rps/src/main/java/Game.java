@@ -1,4 +1,4 @@
-//TO IMPROVE...git i
+//TO IMPROVE...git
 
 import java.util.Random;
 import java.util.Scanner;
@@ -69,7 +69,7 @@ public class Game {
 
                     default:
                         System.out.println("Bad move!");
-                        numberOfRounds--;
+                        play();
                         break;
             }
         }
@@ -109,10 +109,12 @@ public class Game {
 
         else if(specialCaseUser >= 2 && numberOfRounds >= specialCaseUser) {
             System.out.println(name + ", You can win it!");
+            numberOfRounds++;
         }
 
         else if(specialCaseComputer >= 2 && numberOfRounds >= specialCaseComputer) {
             System.out.println("Computer, You can win it!");
+            numberOfRounds++;
         }
     }
 
@@ -169,12 +171,14 @@ public class Game {
             case 'y':
             case 'Y':
                 enterInput();
+                showInformationAboutKeys();
                 play();
                 break;
 
             case 'n':
             case 'N':
                 System.out.println("Nope!");
+                numberOfRounds--;
                 break;
 
                 default:
