@@ -7,17 +7,17 @@ public class Application {
     public static void main(String[] args) {
 
         OrderService extraFoodService = orders -> {
-            System.out.println("Proces zamówień: " + orders + "\nz sklepu: " + Producer.EXTRA_FOOD_SHOP);
+            System.out.println("Proces zamówień: " + orders + " z sklepu: " + Producer.EXTRA_FOOD_SHOP);
             return true;
         };
 
         OrderService healthyFoodService = orders -> {
-            System.out.println("Proces zamówień: " + orders + "\nz sklepu: " + Producer.HEALTHY_SHOP);
+            System.out.println("Proces zamówień: " + orders + " z sklepu: " + Producer.HEALTHY_SHOP);
             return false;
         };
 
         OrderService glutenFreeFoodService = orders -> {
-            System.out.println("Proces zamówień: " + orders + "\nz sklepu: " + Producer.GLUTEN_FREE_SHOP);
+            System.out.println("Proces zamówień: " + orders + " z sklepu: " + Producer.GLUTEN_FREE_SHOP);
             return true;
         };
 
