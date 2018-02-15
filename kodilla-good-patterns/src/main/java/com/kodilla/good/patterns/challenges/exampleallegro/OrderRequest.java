@@ -16,5 +16,4 @@ public class OrderRequest {
     public String getProduct() {
         return product;
     }
-
 }
