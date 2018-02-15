@@ -1,10 +1,10 @@
 package com.kodilla.good.patterns.challenges.flights;
 
 public enum City {
-    POZNAŃ,
+    POZNAN,
     WARSZAWA,
-    GDAŃSK,
-    WROCŁAW,
-    KRAKÓW,
+    GDANSK,
+    WROCLAW,
+    KRAKOW,
     LUBLIN;
 }
