@@ -18,22 +18,10 @@ public class Flight {
     }
 
     @Override
-<<<<<<< HEAD
-    public String toString() {
-        return departureCity + " - " + arrivalCity;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o instanceof City) return true;
-        if (!(o instanceof Flight)) return false;
-=======
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o instanceof City) return true;
         if ((o instanceof Flight) == false) return false;
->>>>>>> b259f057abfdffe6d847499202c3c0a8a504c51a
         Flight flight = (Flight) o;
 
         if(!(departureCity.equals(flight.departureCity))) {
@@ -47,15 +35,12 @@ public class Flight {
     public int hashCode() {
         int result = departureCity.hashCode();
         result = 31 * result + arrivalCity.hashCode();
-<<<<<<< HEAD
         return result;
-=======
-                return result;
+
     }
 
     @Override
     public String toString() {
         return departureCity + " -> " + arrivalCity;
->>>>>>> b259f057abfdffe6d847499202c3c0a8a504c51a
     }
 }
