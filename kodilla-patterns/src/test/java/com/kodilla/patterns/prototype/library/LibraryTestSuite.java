@@ -32,7 +32,7 @@ public class LibraryTestSuite {
         }
 
         //When
-        library.getBooks().add(new Book("Wprowadzenie do algorytmow","Thomas H. Cormen", LocalDate.of(2011, 3, 22)));
+        library.getBooks().add(new Book("Wprowadzenie do algorytmow","Thomas H. Cormen", LocalDate.of(2011, 3, 23)));
 
         //Then
         System.out.println(library);
