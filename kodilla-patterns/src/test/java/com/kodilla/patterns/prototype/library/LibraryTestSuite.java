@@ -39,7 +39,7 @@ public class LibraryTestSuite {
         System.out.println(shallowCopy);
         System.out.println(deepCopy);
         Assert.assertEquals(5, library.getBooks().size());
-        Assert.assertEquals(5, deepCopy.getBooks().size());
+        Assert.assertEquals(5, shallowCopy.getBooks().size());
         Assert.assertEquals(4, deepCopy.getBooks().size());
     }
 }

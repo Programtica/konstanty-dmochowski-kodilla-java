@@ -31,12 +31,11 @@ public final class Library extends Prototype {
     }
 
     public Library deepCopy() throws CloneNotSupportedException {
-        Library clonedLibrary = (Library)super.clone();
-        clonedLibrary.books = new HashSet<>();
-        for(Book booksList : books) {
-                clonedLibrary.getBooks().add(new Book("The Linux Command Line", "Wiliam E. Shotts, Jr",
-                        LocalDate.of(2014, 3, 15)));
+        Library deepClonedLibrary = (Library)super.clone();
+        deepClonedLibrary.books = new HashSet<>();
+        for(Book book : books) {
+            deepClonedLibrary.getBooks().add(book);
             }
-        return clonedLibrary;
+        return deepClonedLibrary;
     }
 }
