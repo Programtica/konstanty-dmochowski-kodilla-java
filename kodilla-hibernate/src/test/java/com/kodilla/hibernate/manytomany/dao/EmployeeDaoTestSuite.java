@@ -27,7 +27,7 @@ public class EmployeeDaoTestSuite {
         employeeDao.save(e3);
 
         //When
-        List<Employee> results = employeeDao.retrieveEmployeesFromLastName("Dmochowski");
+        List<Employee> results = employeeDao.retrieveEmployeeWithLastName("Dmochowski");
         //Then
         Assert.assertEquals(1, results.size());
         //CleanUp
