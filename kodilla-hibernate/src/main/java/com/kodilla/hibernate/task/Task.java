@@ -11,6 +11,16 @@ public final class Task {
     private String description;
     private Date created;
     private int duration;
+    private TaskFinancialDetails taskFinancialDetails;
+
+    public TaskFinancialDetails getTaskFinancialDetails() {
+        return taskFinancialDetails;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
+        this.taskFinancialDetails = taskFinancialDetails;
+    }
 
     public Task() {
     }
