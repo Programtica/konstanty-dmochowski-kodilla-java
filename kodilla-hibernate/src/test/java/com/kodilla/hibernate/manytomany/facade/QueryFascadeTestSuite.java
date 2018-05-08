@@ -1,4 +1,4 @@
-package com.kodilla.hibernate.manytomany.facade;
+/*package com.kodilla.hibernate.manytomany.facade;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
@@ -58,4 +58,4 @@ public class QueryFascadeTestSuite {
         //CleanUp
         employeeDao.deleteAll();
     }
-}
+}*/
