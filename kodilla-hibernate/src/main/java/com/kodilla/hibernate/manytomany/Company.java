@@ -12,7 +12,7 @@ import java.util.List;
         resultClass = Company.class
 )
 @NamedQuery(
-        name = "Company.retrieveCompaniesWithNameLike",
+        name = "Company.retrieveCompaniesLike",
         query = "FROM Company WHERE company_name LIKE :ARG"
 )
 

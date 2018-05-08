@@ -19,10 +19,10 @@ public class QueryFascade {
     }
 
     public List<Company> retrieveTheCompany(String arg) {
-        return companyDao.retrieveCompaniesWithNameLike("%" + arg + "%");
+        return companyDao.retrieveCompaniesLike("%" + arg + "%");
     }
 
     public List<Employee> retrieveTheEmployee(String arg) {
-        return employeeDao.retrieveCompaniesWithSurnameLike("%" + arg + "%");
+        return employeeDao.retriveEmployeeSurname("%" + arg + "%");
     }
 }
