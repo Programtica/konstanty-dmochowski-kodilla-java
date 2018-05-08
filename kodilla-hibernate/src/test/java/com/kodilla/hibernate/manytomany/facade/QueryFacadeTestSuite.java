@@ -15,13 +15,13 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class QueryFascadeTestSuite {
+public class QueryFacadeTestSuite {
     @Autowired
     public EmployeeDao employeeDao;
     @Autowired
     public CompanyDao companyDao;
     @Autowired
-    public QueryFascade queryFascade;
+    public QueryFacade queryFacade;
 
     @Test
     public void testRetrieveCompaniesLike() {
@@ -34,7 +34,7 @@ public class QueryFascadeTestSuite {
         companyDao.save(computerProducers);
         companyDao.save(carProducers);
         //When
-        List<Company> resultsOfRetrieve = queryFascade.retrieveTheCompany("A");
+        List<Company> resultsOfRetrieve = queryFacade.retrieveTheCompany("A");
         //Then
         Assert.assertEquals(2, resultsOfRetrieve.size());
         //CleanUp
@@ -52,7 +52,7 @@ public class QueryFascadeTestSuite {
         employeeDao.save(constantin);
         employeeDao.save(maximilian);
         //When
-        List<Employee> resultsOfRetrieve = queryFascade.retrieveTheEmployee("ski");
+        List<Employee> resultsOfRetrieve = queryFacade.retrieveTheEmployee("ski");
         //Then
         Assert.assertEquals(2, resultsOfRetrieve.size());
         //CleanUp

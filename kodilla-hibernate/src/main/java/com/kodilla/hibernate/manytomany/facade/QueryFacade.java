@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class QueryFascade {
+public class QueryFacade {
     public final CompanyDao companyDao;
     public final EmployeeDao employeeDao;
 
-    public QueryFascade(final CompanyDao companyDao, final EmployeeDao employeeDao) {
+    public QueryFacade(final CompanyDao companyDao, final EmployeeDao employeeDao) {
         this.companyDao = companyDao;
         this.employeeDao = employeeDao;
     }
@@ -23,6 +23,6 @@ public class QueryFascade {
     }
 
     public List<Employee> retrieveTheEmployee(String arg) {
-        return employeeDao.retriveEmployeeSurname("%" + arg + "%");
+        return employeeDao.retrieveEmployeeSurname("%" + arg + "%");
     }
 }

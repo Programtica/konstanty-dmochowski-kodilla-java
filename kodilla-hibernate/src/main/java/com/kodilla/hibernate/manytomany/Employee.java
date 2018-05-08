@@ -11,7 +11,7 @@ import java.util.List;
 )
 
 @org.hibernate.annotations.NamedQuery(
-        name = "Employee.retriveEmployeeSurname",
+        name = "Employee.retrieveEmployeeSurname",
         query = "FROM Employee WHERE lastname LIKE :ARG"
 )
 
