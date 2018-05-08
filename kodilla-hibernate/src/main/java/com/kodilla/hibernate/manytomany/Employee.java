@@ -10,6 +10,11 @@ import java.util.List;
         query = "FROM Employee WHERE lastname = :LASTNAME"
 )
 
+@org.hibernate.annotations.NamedQuery(
+        name = "Employee.retriveEmployeeSurname",
+        query = "FROM Employee WHERE lastname LIKE :ARG"
+)
+
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
